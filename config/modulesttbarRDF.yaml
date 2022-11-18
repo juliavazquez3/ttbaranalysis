@@ -1,0 +1,87 @@
+genclasif:
+    name: genCharmFilterRDF
+    path: ttbar.Modules.GenFilter
+    parameters:
+        isMC: self.dataset.process.isMC
+        year: self.config.year
+        name: self.dataset.process.name
+
+puweight:
+    name: puWeightRDF
+    path: Corrections.LUM.puWeight
+    parameters:
+        isMC: self.dataset.process.isMC
+        year: self.config.year
+        isUL: self.dataset.has_tag('ul')
+        ispreVFP: self.config.get_aux("isPreVFP")
+
+jet_smearing:
+    name: jetSmearerRDF
+    path: Corrections.JME.smearing
+    parameters:
+        year: self.config.year
+        isMC: self.dataset.process.isMC
+        jerTag: self.config.year
+        isUL: self.dataset.has_tag('ul')
+        ispreVFP: self.config.get_aux("isPreVFP")
+
+
+jet_smear_val:
+    name: jetVarRDF
+    path: Corrections.JME.smearing
+    parameters:
+        isMC: self.dataset.process.isMC
+        ispreVFP: self.config.get_aux("isPreVFP")
+
+
+met_smearing:
+    name: metSmearerRDF
+    path: Corrections.JME.smearing
+    parameters:
+        isMC: self.dataset.process.isMC
+
+general_selection:
+    name: selection_generalRDF
+    path: ttbar.Modules.selection_general_JF
+    parameters:
+        isMC: self.dataset.process.isMC
+        year: self.config.year
+        isMU: self.dataset.has_tag('muon')
+        ispreVFP: self.config.get_aux("isPreVFP")
+
+PUjetID_SF:
+    name: PUjetID_SFRDF
+    path: Corrections.JME.PUjetID_SF
+    parameters:
+        year: self.config.year
+        isMC: self.dataset.process.isMC
+        isUL: self.dataset.has_tag('ul')
+        ispreVFP: self.config.get_aux("isPreVFP")
+
+muSF:
+    name: muSFRDF
+    path: Corrections.MUO.muCorrections
+    parameters:
+        isMC: self.dataset.process.isMC
+        year: self.config.year
+        isUL: self.dataset.has_tag('ul')
+        ispreVFP: self.config.get_aux("isPreVFP")
+
+eleSD:
+    name: eleSFRDF
+    path: Corrections.EGM.eleCorrections
+    parameters:
+        isMC: self.dataset.process.isMC
+        year: self.config.year
+        isUL: self.dataset.has_tag('ul')
+        ispreVFP: self.config.get_aux("isPreVFP")
+
+btagSF:
+    name: btag_mySFRDF
+    path: ttbar.Modules.btag_mycorrection
+    parameters:
+        isMC: self.dataset.process.isMC
+        year: self.config.year
+        isUL: self.dataset.has_tag('ul')
+        ispreVFP: self.config.get_aux("isPreVFP")
+

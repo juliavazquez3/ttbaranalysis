@@ -80,6 +80,7 @@ action() {
 
     # specific eos dirs
     [ -z "$CMT_STORE_EOS_CATEGORIZATION" ] && export CMT_STORE_EOS_CATEGORIZATION="$CMT_STORE_EOS"
+    [ -z "$CMT_STORE_EOS_PREPROCESSING" ] && export CMT_STORE_EOS_PREPROCESSING="$CMT_STORE_EOS"
     [ -z "$CMT_STORE_EOS_SHARDS" ] && export CMT_STORE_EOS_SHARDS="$CMT_STORE_EOS"
     [ -z "$CMT_STORE_EOS_EVALUATION" ] && export CMT_STORE_EOS_EVALUATION="$CMT_STORE_EOS"
 
@@ -186,6 +187,12 @@ action() {
           compile="1"
         fi
 
+        export TT_PATH="ttbar"
+        if [ ! -d "$TT_PATH" ]; then
+	    git clone https://github.com/juliavazquez3/myttbarRDFmodules ttbar/Modules
+            compile="1"
+        fi
+
         export HHKINFIT_PATH="HHKinFit2"
         if [ ! -d "$HHKINFIT_PATH" ]; then
           git clone https://github.com/bvormwald/HHKinFit2.git -b CMSSWversion
@@ -229,9 +236,9 @@ action() {
         if [ ! -d "$CORRECTIONS_PATH" ]; then
           git clone https://github.com/jaimeleonh/correctionlib-wrapper --branch cmssw_version  Corrections/Wrapper
           git clone https://gitlab.cern.ch/cms-phys-ciemat/tau-corrections.git Corrections/TAU
-          git clone https://gitlab.cern.ch/cms-phys-ciemat/jme-corrections.git Corrections/JME
+          git clone https://gitlab.cern.ch/cms-phys-ciemat/jme-corrections.git Corrections/JME -b julia_changes
           git clone https://gitlab.cern.ch/cms-phys-ciemat/lum-corrections.git Corrections/LUM
-          git clone https://gitlab.cern.ch/cms-phys-ciemat/muo-corrections.git Corrections/MUO
+          git clone https://gitlab.cern.ch/cms-phys-ciemat/muo-corrections.git Corrections/MUO -b julia_changes
           git clone https://gitlab.cern.ch/cms-phys-ciemat/egm-corrections.git Corrections/EGM
           git clone https://gitlab.cern.ch/cms-phys-ciemat/btv-corrections.git Corrections/BTV
           compile="1"
