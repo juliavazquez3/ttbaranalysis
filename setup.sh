@@ -239,7 +239,7 @@ action() {
           git clone https://gitlab.cern.ch/cms-phys-ciemat/jme-corrections.git Corrections/JME -b julia_changes
           git clone https://gitlab.cern.ch/cms-phys-ciemat/lum-corrections.git Corrections/LUM
           git clone https://gitlab.cern.ch/cms-phys-ciemat/muo-corrections.git Corrections/MUO -b julia_changes
-          git clone https://gitlab.cern.ch/cms-phys-ciemat/egm-corrections.git Corrections/EGM
+          git clone https://gitlab.cern.ch/cms-phys-ciemat/egm-corrections.git Corrections/EGM -b julia_changes
           git clone https://gitlab.cern.ch/cms-phys-ciemat/btv-corrections.git Corrections/BTV
           compile="1"
         fi
